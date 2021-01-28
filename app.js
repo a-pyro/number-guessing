@@ -13,12 +13,21 @@ const gameUI = document.getElementById('game'),
   maxNum = document.querySelector('.max_num'),
   form = document.querySelector('form'),
   guessInput = document.getElementById('guessInput'),
-  message = document.querySelector('.message');
-
+  message = document.querySelector('.message'),
+  guessBtn = document.querySelector('#guessBtn');
 // Assegno min max all'UI
 
 minNum.textContent = min;
 maxNum.textContent = max;
+
+// Gioca ancora event listener // DELEGO EVENTO A GAMEUI
+gameUI.addEventListener('click', (e) => {
+  // cerco delegatario
+  if (e.target.className === 'play-again') {
+    console.log(1);
+    window.location.reload();
+  }
+});
 
 // ascolta per guess
 form.addEventListener('submit', (e) => {
@@ -101,4 +110,9 @@ function gameOver(won, msg) {
   guessInput.style.borderColor = color;
   // setto il messaggio
   setMessage(msg, color);
+
+  // gioca ancora
+
+  guessBtn.value = 'Play Again';
+  guessBtn.className = 'play-again';
 }
