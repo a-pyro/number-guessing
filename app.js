@@ -32,6 +32,7 @@ gameUI.addEventListener('click', (e) => {
 // ascolta per guess
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
   console.log(winningNum);
   let guess = parseInt(guessInput.value);
 
